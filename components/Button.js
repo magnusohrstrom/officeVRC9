@@ -1,14 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-    AppRegistry,
     asset,
-    Pano,
-    Scene,
-    Text,
-    View,
     Image, 
-    Box,
     VrButton
   } from 'react-vr';
 
@@ -27,13 +21,9 @@ const Button = (props) => {
 
 export default Button;
 
-
-
-
 Button.propTypes = {
     onClick: PropTypes.func.isRequired,
     style: PropTypes.object.isRequired,
     sourceUrl:PropTypes.string.isRequired,
     className: PropTypes.string
-  }
-  
+}

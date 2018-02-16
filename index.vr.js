@@ -11,60 +11,67 @@ import {
   VrButton
 } from 'react-vr';
 import Button from './components/Button';
+import Room from './components/Room';
+import tourData from './static_assets/tourData';
 
 export default class officeVRC9 extends React.Component {
   state = {
-    room:1
+    tourList:[],
+    roomCounter:0,
+    roomImageUrl:'images/skola.jpg',
+    currentRoom:{}
   }
 
   log = () => {
-    console.log('hejsy');
+    this.setState({roomCounter:this.state.roomCounter+1});
+    console.log(this.state.tourList[this.state.roomCounter].sourceUrl);
+    
   }
-
-
+  componentWillMount = () => {
+    this.setState({
+      tourList: tourData
+    });
+    
+  }
   render() {
+    const {roomCounter, roomImageUrl, currentRoom, tourList } = this.state;
     return (
-   
-     
-     <View style={{display:'flex', flexDirection:'column', height:"200px", width:"200px"}}>
-      <Pano style={{marginBottom:60}} onLoad = {()=>{console.log('loadyd');
-      }}source={asset('skola.jpg')}/>
-        <View style={{
-            flex: 1,
-            flexDirection: 'column',
-            width: 2,
-            alignItems: 'stretch',
-            transform: [{translate: [-1, 1, -5]}],
-          }}>
-
-          <View pointerEvents = 'auto' onPress = {this.log} style={{ margin: 0.1, height: 0.3, backgroundColor: 'red'}}>
-            <Text pointerEvents = 'auto'   style={{fontSize: 0.2, textAlign: 'center'}}>Red</Text>
-          </View>
-
+    <View>
+      {roomCounter === 0 &&
+        <View>
+          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
+          <Button style= {{width: 2.7, 
+            transform:[{translate: [-10, 0, -10]},
+            {rotateY:"90deg"}]}}
+            onClick = {this.log}
+            sourceUrl = 'images/magnus2.jpg'
+            /> 
         </View>
-        <Button style= {{width: 2.7, 
-                transform:[{translate: [-10, 0, -10]},
-                {rotateY:"90deg"}]}}
-                onClick = {this.log}
-                sourceUrl = 'magnus2.jpg'
-                /> 
-        <Text onPress = {this.log}
-          style={{
-            backgroundColor: '#777879',
-
-            fontSize: 0.8,
-            fontWeight: '400',
-            layoutOrigin: [0.5, 0.5],
-            paddingLeft: 0.2,
-            paddingRight: 0.2,
-            textAlign: 'left',
-            textAlignVertical: 'center',
-            transform: [{translate: [0, 0, -7]}],
-          }}>
-          hello
-        </Text>
-      </View> 
-
+      }
+      {roomCounter === 1 &&
+        <View>
+          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
+          <Button style= {{width: 2.7, 
+            transform:[{translate: [0, 0, -10]},
+            {rotateY:"90deg"}]}}
+            onClick = {this.log}
+            sourceUrl = 'images/magnus2.jpg'
+            /> 
+        </View>
+      }
+      {roomCounter === 2 &&
+        <View>
+          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
+          <Button style= {{width: 2.7, 
+            transform:[{translate: [-10, 0, -10]},
+            {rotateY:"90deg"}]}}
+            onClick = {this.log}
+            sourceUrl = 'images/magnus2.jpg'
+            /> 
+        </View>
+      }
+      
+    </View>
     );
   }
 };
