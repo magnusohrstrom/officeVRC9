@@ -10,63 +10,82 @@ import {
   Box,
   VrButton
 } from 'react-vr';
-import Button from './components/Button';
+import NextRoomButton from './components/NextRoomButton';
 import Room from './components/Room';
 import tourData from './static_assets/tourData';
+import Button from './components/Button';
+import LoadingScreen from './components/LoadingScreen';
 
 export default class officeVRC9 extends React.Component {
   state = {
     tourList:[],
-    roomCounter:0,
+    roomCounter:null,
     roomImageUrl:'images/skola.jpg',
-    currentRoom:{}
+    currentRoom:{},
+    tourIsStarted:false
   }
 
   log = () => {
     this.setState({roomCounter:this.state.roomCounter+1});
     console.log(this.state.tourList[this.state.roomCounter].sourceUrl);
-    
   }
+
+  startTour = () => {
+    this.setState({
+      tourIsStarted:true,
+      roomCounter:0
+    });
+  }
+
   componentWillMount = () => {
     this.setState({
       tourList: tourData
-    });
-    
+    });  
   }
   render() {
-    const {roomCounter, roomImageUrl, currentRoom, tourList } = this.state;
+    const {roomCounter, tourIsStarted, roomImageUrl, currentRoom, tourList } = this.state;
     return (
     <View>
+       {!tourIsStarted && 
+        <LoadingScreen onClick={this.startTour}/>
+      } 
       {roomCounter === 0 &&
         <View>
           <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <Button style= {{width: 2.7, 
-            transform:[{translate: [-10, 0, -10]},
-            {rotateY:"90deg"}]}}
+          <NextRoomButton
+            translateCoordinates = {{translate:[0,2,-10]}}
             onClick = {this.log}
-            sourceUrl = 'images/magnus2.jpg'
             /> 
+          <Button onClick={()=>{console.log('art pressed')}} style = {{
+            width: 2.7,
+            height:2.7, 
+            //borderColor:"red",
+           // borderWidth:1,
+            transform:[{translate: [-10, 4, -10]},
+            {rotateY:"90deg"}]
+          }}/>
         </View>
       }
       {roomCounter === 1 &&
         <View>
           <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <Button style= {{width: 2.7, 
-            transform:[{translate: [0, 0, -10]},
+          <NextRoomButton 
+            translateCoordinates = {{translate:[0,-2,-10]}}
+            onClick = {this.log}
+            /> 
+            <Button style= {{width: 2.7, 
+            transform:[{translate: [-10, 0, -10]},
             {rotateY:"90deg"}]}}
             onClick = {this.log}
-            sourceUrl = 'images/magnus2.jpg'
             /> 
         </View>
       }
       {roomCounter === 2 &&
         <View>
           <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <Button style= {{width: 2.7, 
-            transform:[{translate: [-10, 0, -10]},
-            {rotateY:"90deg"}]}}
+          <NextRoomButton 
+            translateCoordinates = {{translate:[0,4,-10]}}
             onClick = {this.log}
-            sourceUrl = 'images/magnus2.jpg'
             /> 
         </View>
       }
