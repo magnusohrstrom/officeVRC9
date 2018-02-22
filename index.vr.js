@@ -63,14 +63,14 @@ export default class officeVRC9 extends React.Component {
         <View>
           <Pano source = {asset(tourList[roomCounter].sourceUrl)}/>
           <NextRoomButton
-            translateCoordinates = {{translate:[0,2,-10]}}
+            translateCoordinates = {{translate:[0,0,-10]}}
             onClick = {this.log}
             /> 
           <Button onClick = {this.toggleShowArtworkState} 
             buttonStyle = {{
-            width: 2.7,
-            height:2.7, 
-            borderColor:"black",
+            width: 3.7,
+            height:3.7, 
+            borderColor:"#D81E5B",
             borderWidth:0.1,
             transform:[{translate: [-10, 4, -10]},
             {rotateY:"90deg"}]
@@ -80,15 +80,15 @@ export default class officeVRC9 extends React.Component {
               artworkText = "artwork text" 
               sourceUrl = {asset('images/mountain.jpg')}
               buttonStyle ={{
-                width:5,
-                height:5
+                width:7.6,
+                height:7
               }}
-              imageStyle={{width:5.6, height:5}}
+              imageStyle={{width:7.6, height:7}}
               onClick = {this.toggleShowArtworkState}
               viewStyle= {{
                 position:'absolute',
-                width:6,
-                height:6,
+                width:8,
+                height:8,
                 flexDirection:"column", 
                 padding:0.2, 
                 backgroundColor:"white", 

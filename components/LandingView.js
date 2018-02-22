@@ -14,7 +14,7 @@ import Button from './Button';
 const LandingView = (props) => {
     return (
         <View style={{flex:1, flexDirection: "column",  transform:[{translate: [0, 0, -4]}]}}>
-            <Pano source={asset('/images/landing.jpg')}/>
+            <Pano source={asset('/images/backgroundgrey.jpg')}/>
             <Text style={{
                 height:2, 
                 width:2,
@@ -29,31 +29,31 @@ const LandingView = (props) => {
                 Cloud Nine VR
             </Text> 
 
+            <Button buttonStyle={{width:2, 
+                height:3, 
+                borderWidth:0.1,
+                borderColor:'#D81E5B', 
+                transform:[{translate: [-8, -4, -4]},{rotateY:"90deg"}]}}/>
             <Button buttonStyle={{width:1, 
                 height:2, 
                 borderWidth:0.1,
-                borderColor:'pink', 
-                transform:[{translate: [0, -2, -4]}]}}/>
-            <Button buttonStyle={{width:1, 
-                height:2, 
-                borderWidth:0.1,
-                borderColor:'green', 
+                borderColor:'#05B2DC', 
                 transform:[{translate: [-5, 0, -3]},{rotateY:"90deg"}]}}/>
             <Button buttonStyle={{width:2, 
                 height:3, 
                 borderWidth:0.1,
-                borderColor:'blue', 
+                borderColor:'#05B2DC', 
                 transform:[{translate: [-5, 6, -4]},{rotateY:"90deg"}]}}/>
             <Button buttonStyle={{width:4, 
                 height:2, 
                 borderWidth:0.1,
-                borderColor:'pink', 
+                borderColor:'#087CA7', 
                 transform:[{translate: [3, 10, -4]},{rotateY:"-90deg"}]}}/> 
-            <Button buttonStyle={{width:4, 
-                height:2, 
+            <Button buttonStyle={{width:3, 
+                height:4, 
                 borderWidth:0.1,
-                borderColor:'blue', 
-                transform:[{translate: [3, 5, -4]},{rotateY:"-90deg"}]}}/> 
+                borderColor:'#D81E5B', 
+                transform:[{translate: [3, 9, -4]},{rotateY:"-90deg"}]}}/> 
 
             <Button  buttonStyle= {{
                 width: 5.5, 
