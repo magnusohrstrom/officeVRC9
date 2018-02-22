@@ -5,7 +5,8 @@ import {
   Text,
   View,
   Image,
-  Box
+  Box,
+  Svg
 } from 'react-vr';
 
 import Button from './Button';
@@ -18,41 +19,51 @@ const LandingView = (props) => {
                 height:2, 
                 width:2,
                 fontSize:0.2,
-                fontFamily:"Calibre,serif",
+                fontFamily:"Helvetica",
                 color:"black",
                 borderColor:"black",
                 borderWidth:0.1,
                 position:'absolute',
-                transform:[{translate: [-0.5, 0.3, 0]}] 
+                transform:[{translate: [-0.4, 0.5, 0]}] 
                 }}>
                 Cloud Nine VR
-            </Text>
-            <Button style={{width:1, 
+            </Text> 
+
+            <Button buttonStyle={{width:1, 
+                height:2, 
+                borderWidth:0.1,
+                borderColor:'pink', 
+                transform:[{translate: [0, -2, -4]}]}}/>
+            <Button buttonStyle={{width:1, 
+                height:2, 
+                borderWidth:0.1,
+                borderColor:'green', 
+                transform:[{translate: [-5, 0, -3]},{rotateY:"90deg"}]}}/>
+            <Button buttonStyle={{width:2, 
+                height:3, 
+                borderWidth:0.1,
+                borderColor:'blue', 
+                transform:[{translate: [-5, 6, -4]},{rotateY:"90deg"}]}}/>
+            <Button buttonStyle={{width:4, 
+                height:2, 
+                borderWidth:0.1,
+                borderColor:'pink', 
+                transform:[{translate: [3, 10, -4]},{rotateY:"-90deg"}]}}/> 
+            <Button buttonStyle={{width:4, 
                 height:2, 
                 borderWidth:0.1,
                 borderColor:'blue', 
-                transform:[{translate: [0, -2, -4]}]}}/>
-            <Button style={{width:1, 
-                height:4, 
-                borderWidth:0.1,
-                borderColor:'blue', 
-                transform:[{translate: [-5, 6, -4]}]}}/>
+                transform:[{translate: [3, 5, -4]},{rotateY:"-90deg"}]}}/> 
 
-            <Button style={{width:1, 
-                height:6, 
-                borderWidth:0.1,
-                borderColor:'blue', 
-                transform:[{translate: [3, 5, -4]}]}}/> 
-
-            <Button  style= {{
-                width: 8.5, 
-                height:8.5, 
+            <Button  buttonStyle= {{
+                width: 5.5, 
+                height:5.5, 
                 backgroundColor:'transparent', 
                 borderWidth:0.5,
                 borderRadius:100,
                 borderColor:'black',
                 position:'absolute', 
-                transform:[{translate: [-4, 8, -10]}]
+                transform:[{translate: [-2, 4, -10]}]
             }}
                 onClick={props.onClick}/>
         </View>

@@ -31,6 +31,9 @@ export default class officeVRC9 extends React.Component {
     this.setState({roomCounter:this.state.roomCounter+1});
     console.log(this.state.tourList[this.state.roomCounter].sourceUrl);
   }
+  loggy = () => {
+    console.log('loggy');    
+  }
 
   startTour = () => {
     this.setState({
@@ -64,7 +67,7 @@ export default class officeVRC9 extends React.Component {
             onClick = {this.log}
             /> 
           <Button onClick = {this.toggleShowArtworkState} 
-            style = {{
+            buttonStyle = {{
             width: 2.7,
             height:2.7, 
             borderColor:"black",
@@ -73,8 +76,26 @@ export default class officeVRC9 extends React.Component {
             {rotateY:"90deg"}]
           }}/>
           { showArtwork && 
-            <Artwork artworkText = "artwork text"/>
-          }
+            <Artwork 
+              artworkText = "artwork text" 
+              sourceUrl = {asset('images/mountain.jpg')}
+              buttonStyle ={{
+                width:5,
+                height:5
+              }}
+              imageStyle={{width:5.6, height:5}}
+              onClick = {this.toggleShowArtworkState}
+              viewStyle= {{
+                position:'absolute',
+                width:6,
+                height:6,
+                flexDirection:"column", 
+                padding:0.2, 
+                backgroundColor:"white", 
+                transform:[{translate:[-10, 6, -10]},{rotateY:"45deg"}]
+                }}
+              />
+          } 
         </View>
       }
       {roomCounter === 1 &&
@@ -84,7 +105,7 @@ export default class officeVRC9 extends React.Component {
             translateCoordinates = {{translate:[0,-2,-10]}}
             onClick = {this.log}
             /> 
-            <Button style= {{width: 2.7, 
+            <Button buttonStyle= {{width: 2.7, 
             transform:[{translate: [-10, 0, -10]},
             {rotateY:"90deg"}]}}
             onClick = {this.log}
