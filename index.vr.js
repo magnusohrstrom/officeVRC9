@@ -27,10 +27,11 @@ export default class officeVRC9 extends React.Component {
     showArtwork:false
   }
 
-  log = () => {
-    this.setState({roomCounter:this.state.roomCounter+1});
-    console.log(this.state.tourList[this.state.roomCounter].sourceUrl);
+  changeRoomBySetStateOfRoomCounter = (x) => {
+    x==="next" ? this.setState({roomCounter:this.state.roomCounter+1})
+    :this.setState({roomCounter:this.state.roomCounter-1});
   }
+
   loggy = () => {
     console.log('loggy');    
   }
@@ -64,13 +65,17 @@ export default class officeVRC9 extends React.Component {
           <Pano source = {asset(tourList[roomCounter].sourceUrl)}/>
           <NextRoomButton
             translateCoordinates = {{translate:[0,0,-10]}}
-            onClick = {this.log}
-            /> 
+            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
+            />
+            <NextRoomButton
+            translateCoordinates = {{translate:[0,0,10]}}
+            onClick = {this.changeRoomBySetStateOfRoomCounter}
+            />  
           <Button onClick = {this.toggleShowArtworkState} 
             buttonStyle = {{
             width: 3.7,
             height:3.7, 
-            borderColor:"#D81E5B",
+            borderColor:"#05B2DC",
             borderWidth:0.1,
             transform:[{translate: [-10, 4, -10]},
             {rotateY:"90deg"}]
@@ -103,12 +108,12 @@ export default class officeVRC9 extends React.Component {
           <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
           <NextRoomButton 
             translateCoordinates = {{translate:[0,-2,-10]}}
-            onClick = {this.log}
+            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
             /> 
             <Button buttonStyle= {{width: 2.7, 
             transform:[{translate: [-10, 0, -10]},
             {rotateY:"90deg"}]}}
-            onClick = {this.log}
+            onClick = {this.changeRoomBySetStateOfRoomCounter}
             /> 
         </View>
       }
@@ -117,7 +122,7 @@ export default class officeVRC9 extends React.Component {
           <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
           <NextRoomButton 
             translateCoordinates = {{translate:[ 0, 4, -10]}}
-            onClick = {this.log}
+            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
             /> 
         </View>
       }

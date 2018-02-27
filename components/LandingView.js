@@ -33,17 +33,17 @@ const LandingView = (props) => {
                 height:3, 
                 borderWidth:0.1,
                 borderColor:'#D81E5B', 
-                transform:[{translate: [-8, -4, -4]},{rotateY:"90deg"}]}}/>
+                transform:[{translate: [-8, 4, -4]},{rotateY:"90deg"}]}}/>
             <Button buttonStyle={{width:1, 
                 height:2, 
                 borderWidth:0.1,
-                borderColor:'#05B2DC', 
-                transform:[{translate: [-5, 0, -3]},{rotateY:"90deg"}]}}/>
+                borderColor:'#087CA7', 
+                transform:[{translate: [-5, 2, -3]},{rotateY:"90deg"}]}}/>
             <Button buttonStyle={{width:2, 
                 height:3, 
                 borderWidth:0.1,
                 borderColor:'#05B2DC', 
-                transform:[{translate: [-5, 6, -4]},{rotateY:"90deg"}]}}/>
+                transform:[{translate: [-5, 8, -4]},{rotateY:"90deg"}]}}/>
             <Button buttonStyle={{width:4, 
                 height:2, 
                 borderWidth:0.1,
@@ -63,7 +63,7 @@ const LandingView = (props) => {
                 borderRadius:100,
                 borderColor:'black',
                 position:'absolute', 
-                transform:[{translate: [-2, 4, -10]}]
+                transform:[{translate: [-2, 4, -9]}]
             }}
                 onClick={props.onClick}/>
         </View>
