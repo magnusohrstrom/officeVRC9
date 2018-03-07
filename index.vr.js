@@ -8,7 +8,8 @@ import {
   View,
   Image, 
   Box,
-  VrButton
+  VrButton,
+  Animated
 } from 'react-vr';
 import NextRoomButton from './components/NextRoomButton';
 import Room from './components/Room';
@@ -24,7 +25,7 @@ export default class officeVRC9 extends React.Component {
     roomImageUrl:'images/skola.jpg',
     currentRoom:{},
     tourIsStarted:false,
-    showArtwork:false
+    showArtwork:null
   }
 
   changeRoomBySetStateOfRoomCounter = (x) => {
@@ -43,9 +44,9 @@ export default class officeVRC9 extends React.Component {
     });
   }
 
-  toggleShowArtworkState= () => {
-    !this.state.showArtwork ? this.setState({ showArtwork:true }) 
-    : this.setState({showArtwork:false}); 
+  toggleShowArtworkState = (x) => {
+    this.state.showArtwork === null ? this.setState({ showArtwork: x }) 
+    : this.setState({showArtwork:null}); 
   }
 
   componentWillMount = () => {
@@ -55,6 +56,7 @@ export default class officeVRC9 extends React.Component {
   }
   render() {
     const {roomCounter, tourIsStarted, roomImageUrl, currentRoom, tourList, showArtwork } = this.state;
+    
     return (
     <View>
        {!tourIsStarted && 
@@ -67,11 +69,8 @@ export default class officeVRC9 extends React.Component {
             translateCoordinates = {{translate:[0,0,-10]}}
             onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
             />
-            <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-            />  
-          <Button onClick = {this.toggleShowArtworkState} 
+          
+          <Button onClick = {()=>{this.toggleShowArtworkState(0)}} 
             buttonStyle = {{
             width: 3.7,
             height:3.7, 
@@ -80,10 +79,10 @@ export default class officeVRC9 extends React.Component {
             transform:[{translate: [-10, 4, -10]},
             {rotateY:"90deg"}]
           }}/>
-          { showArtwork && 
+          { showArtwork === 0 ? 
             <Artwork 
               artworkText = "artwork text" 
-              sourceUrl = {asset('images/mountain.jpg')}
+              sourceUrl = {asset(tourList[roomCounter].artList[0])}
               buttonStyle ={{
                 width:7.6,
                 height:7
@@ -99,8 +98,102 @@ export default class officeVRC9 extends React.Component {
                 backgroundColor:"white", 
                 transform:[{translate:[-10, 6, -10]},{rotateY:"45deg"}]
                 }}
-              />
-          } 
+              />:null
+          }
+
+          <Button onClick = {()=>{this.toggleShowArtworkState(1)}} 
+            buttonStyle = {{
+            width: 3.7,
+            height:3.7, 
+            borderColor:"#05B2DC",
+            borderWidth:0.1,
+            transform:[{translate: [-10, 4, 10]},
+            {rotateY:"90deg"}]
+            }}
+          />
+          { showArtwork === 1 ? 
+            <Artwork 
+              artworkText = "artwork text" 
+              sourceUrl = {asset(tourList[roomCounter].artList[1])}
+              buttonStyle ={{
+                width:7.6,
+                height:7
+              }}
+              imageStyle={{width:7.6, height:7}}
+              onClick = {this.toggleShowArtworkState}
+              viewStyle= {{
+                position:'absolute',
+                width:8,
+                height:8,
+                flexDirection:"column", 
+                padding:0.2, 
+                backgroundColor:"white", 
+                transform:[{translate:[-10, 6, 10]},{rotateY:"120deg"}]
+                }}
+              />:null
+          }
+          <Button onClick = {()=>{this.toggleShowArtworkState(2)}} 
+            buttonStyle = {{
+            width: 3.7,
+            height:3.7, 
+            borderColor:"#05B2DC",
+            borderWidth:0.1,
+            transform:[{translate: [-10, 2, 10]},
+            {rotateY:"90deg"}]
+            }}
+          />
+          { showArtwork === 2 ? 
+            <Artwork 
+              artworkText = "artwork text" 
+              sourceUrl = {asset(tourList[roomCounter].artList[2])}
+              buttonStyle ={{
+                width:7.6,
+                height:7
+              }}
+              imageStyle={{width:7.6, height:7}}
+              onClick = {this.toggleShowArtworkState}
+              viewStyle= {{
+                position:'absolute',
+                width:8,
+                height:8,
+                flexDirection:"column", 
+                padding:0.2, 
+                backgroundColor:"white", 
+                transform:[{translate:[-10, 6, 10]},{rotateY:"120deg"}]
+                }}
+              />:null
+          }
+          <Button onClick = {()=>{this.toggleShowArtworkState(3)}} 
+            buttonStyle = {{
+            width: 3.7,
+            height:3.7, 
+            borderColor:"#05B2DC",
+            borderWidth:0.1,
+            transform:[{translate: [-10, 2, 10]},
+            {rotateY:"90deg"}]
+            }}
+          />
+          { showArtwork === 3 ? 
+            <Artwork 
+              artworkText = "artwork text" 
+              sourceUrl = {asset(tourList[roomCounter].artList[3])}
+              buttonStyle ={{
+                width:7.6,
+                height:7
+              }}
+              imageStyle={{width:7.6, height:7}}
+              onClick = {this.toggleShowArtworkState}
+              viewStyle= {{
+                position:'absolute',
+                width:8,
+                height:8,
+                flexDirection:"column", 
+                padding:0.2, 
+                backgroundColor:"white", 
+                transform:[{translate:[-10, 2, 10]},{rotateY:"120deg"}]
+                }}
+              />:null
+          }      
         </View>
       }
       {roomCounter === 1 &&
@@ -110,6 +203,10 @@ export default class officeVRC9 extends React.Component {
             translateCoordinates = {{translate:[0,-2,-10]}}
             onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
             /> 
+          <NextRoomButton
+            translateCoordinates = {{translate:[0,0,10]}}
+            onClick = {this.changeRoomBySetStateOfRoomCounter}
+          />
             <Button buttonStyle= {{width: 2.7, 
             transform:[{translate: [-10, 0, -10]},
             {rotateY:"90deg"}]}}
@@ -124,9 +221,12 @@ export default class officeVRC9 extends React.Component {
             translateCoordinates = {{translate:[ 0, 4, -10]}}
             onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
             /> 
+          <NextRoomButton
+            translateCoordinates = {{translate:[0,0,10]}}
+            onClick = {this.changeRoomBySetStateOfRoomCounter}
+          />
         </View>
       }
-      
     </View>
     );
   }

@@ -13,7 +13,7 @@ const NextRoomButton = (props) => {
                 backgroundColor:'transparent', 
                 borderWidth:0.1,
                 borderRadius:100,
-                borderColor:'#05B2DC',
+                borderColor:'black',
                 position:"absolute",
                 transform: [props.translateCoordinates] 
                 }}

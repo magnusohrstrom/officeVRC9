@@ -3,17 +3,21 @@ import {
   asset,
   Text,
   View,
-  Image
+  Image,
+  Animated
 } from 'react-vr';
 import Button from './Button';
 
+const AnimatedView = Animated.createAnimatedComponent(View);
+
 const Artwork = (props) => {
     return (
-        <View style= {props.viewStyle}>
+        <AnimatedView style = {props.viewStyle}>
             <Button {...props} />
             <Text style={{color:'black', fontSize:0.3}}>{props.artworkText}</Text>
-        </View>
+        </AnimatedView>
     );
 }
 
 export default Artwork;
+
