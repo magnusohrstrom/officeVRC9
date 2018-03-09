@@ -1,22 +1,20 @@
 import React from 'react';
-import { View } from 'react-vr';
+import { View, asset } from 'react-vr';
 import Button from './Button.js';
 
 const NextRoomButton = (props) => {
-    let hej = {transform:[{translate: [0, 0, -10]}]};
     return (
        <View>
             <Button 
                 buttonStyle = {{
-                width: 0.5, 
-                height:0.5, 
+                width: 1.5, 
+                height:1.5, 
                 backgroundColor:'transparent', 
-                borderWidth:0.1,
-                borderRadius:100,
-                borderColor:'black',
                 position:"absolute",
-                transform: [props.translateCoordinates] 
+                transform: [props.translateCoordinates, {rotateX:"45deg"}] 
                 }}
+                sourceUrl = {asset("images/arrowyellow.png")}
+                imageStyle={{width:1.2,height:1.2, position:"absolute"}}
             {...props}/>   
         </View>      
     );

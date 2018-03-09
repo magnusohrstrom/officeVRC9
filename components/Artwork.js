@@ -14,7 +14,8 @@ const Artwork = (props) => {
     return (
         <AnimatedView style = {props.viewStyle}>
             <Button {...props} />
-            <Text style={{color:'black', fontSize:0.3}}>{props.artworkText}</Text>
+            <Text style={props.textStyleTitle}>{props.artworkTitle}</Text>
+            <Text style={props.textStyleArtist}>{props.artworkArtist}</Text>  
         </AnimatedView>
     );
 }
