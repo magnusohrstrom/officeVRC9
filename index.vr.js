@@ -12,11 +12,11 @@ import {
   Animated
 } from 'react-vr';
 import NextRoomButton from './components/NextRoomButton';
-import Room from './components/Room';
 import tourData from './static_assets/tourData';
 import Button from './components/Button';
 import LandingView from './components/LandingView';
 import Artwork from './components/Artwork';
+import Testy from './components/Testy';
 
 
 export default class officeVRC9 extends React.Component {
@@ -70,7 +70,7 @@ export default class officeVRC9 extends React.Component {
             translateCoordinates = {{translate:[0,0,-10]}}
             onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
             />
-          
+          <Testy/>
           <Button onClick = {()=>{this.toggleShowArtworkState(0)}} 
             buttonStyle = {{
             width: 3.7,
