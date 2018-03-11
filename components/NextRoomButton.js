@@ -11,7 +11,7 @@ const NextRoomButton = (props) => {
                 height:1.5, 
                 backgroundColor:'transparent', 
                 position:"absolute",
-                transform: [props.translateCoordinates, {rotateX:"45deg"}] 
+                transform: props.translateCoordinates 
                 }}
                 sourceUrl = {asset("images/arrowyellow.png")}
                 imageStyle={{width:1.2,height:1.2, position:"absolute"}}

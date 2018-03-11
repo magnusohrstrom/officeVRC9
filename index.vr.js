@@ -22,8 +22,8 @@ import Testy from './components/Testy';
 export default class officeVRC9 extends React.Component {
   state = {
     tourList:[],
-    roomCounter:2,
-    currentRoom:tourData[3],
+    roomCounter:0,
+    currentRoom:tourData[5],
     tourIsStarted:false,
     showArtwork:null
   }
@@ -73,13 +73,13 @@ export default class officeVRC9 extends React.Component {
         <View>
           <Pano source = {asset(currentRoom.sourceUrl)}/>
           <NextRoomButton
-            translateCoordinates = {{translate:currentRoom.nextButtonPosition}}
+            translateCoordinates = {currentRoom.nextButtonPosition}
             onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
             />
-          <NextRoomButton
-            translateCoordinates = {{translate:currentRoom.backButtonPosition}}
+          {currentRoom !== tourData[0] && <NextRoomButton
+            translateCoordinates = {currentRoom.backButtonPosition}
             onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
+          />}
           { currentRoom.artList[0] && <Button onClick = {()=>{this.toggleShowArtworkState(0)}} 
             buttonStyle = {{
             width: currentRoom.artList[0].buttonWidth,
@@ -400,6 +400,38 @@ export default class officeVRC9 extends React.Component {
                 padding:0.2, 
                 
                 transform:currentRoom.artList[9].artworkPosition
+                }}
+              />:null
+          }
+          { currentRoom.artList[10] && <Button onClick = {()=>{this.toggleShowArtworkState(10)}} 
+            buttonStyle = {{
+            width: 4.7,
+            height:4.7,
+            borderColor:'black',
+            borderWidth:0.1,
+            position:'absolute', 
+            transform:currentRoom.artList[10].buttonPosition
+            }}
+          />}
+          { showArtwork === 10 ? 
+            <Artwork 
+              artworkTitle = {currentRoom.artList[10].title} 
+              artworkArtist = {currentRoom.artList[10].artist}
+              textStyleTitle={{color:'white', fontSize:0.8}}
+              textStyleArtist={{color:'white', fontSize:0.7}}
+              buttonStyle ={{
+                width:7.6,
+                height:7
+              }}
+              onClick = {this.toggleShowArtworkState}
+              viewStyle= {{
+                position:'absolute',
+                width:8,
+                height:8,
+                flexDirection:"column", 
+                padding:0.2, 
+                
+                transform:currentRoom.artList[10].artworkPosition
                 }}
               />:null
           }
