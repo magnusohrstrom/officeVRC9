@@ -464,26 +464,26 @@ export default tourData = [
             {
                 title:'Untitled5',
                 artist:'Anonymous',
-                buttonHeight:9,
-                buttonWidth:8.2,
-                buttonPosition:[{translate: [-4.2, 4, -8]}, {rotateY:"0deg"}],
-                artworkPosition:[{translate:[2.2, 4, -10]},{rotateY:"0deg"}] 
+                buttonHeight:8,
+                buttonWidth:5.2,
+                buttonPosition:[{translate: [-1.2, 4, -8]}, {rotateY:"40deg"}],
+                artworkPosition:[{translate:[2.2, 3, -12]},{rotateY:"0deg"}] 
             },
             {
                 title:'Untitled6',
                 artist:'Anonymous',
-                buttonHeight:3,
-                buttonWidth:3,
-                buttonPosition:[{translate: [8.2, 1, -10]}, {rotateY:"0deg"}],
-                artworkPosition:[{translate:[11.7, 5, -10]},{rotateY:"-40deg"}] 
+                buttonHeight:2,
+                buttonWidth:2,
+                buttonPosition:[{translate: [4.8, 0, -10]}, {rotateY:"-40deg"}],
+                artworkPosition:[{translate:[5.7, 5, -10]},{rotateY:"-40deg"}] 
             },
             {
                 title:'Untitled7',
                 artist:'Anonymous',
-                buttonHeight:5,
-                buttonWidth:5,
-                buttonPosition:[{translate: [11, -2, -5]}, {rotateY:"-70deg"}],
-                artworkPosition:[{translate:[15, 1, -3]},{rotateY:"-70deg"}] 
+                buttonHeight:8,
+                buttonWidth:7,
+                buttonPosition:[{translate: [15, 2, 4]}, {rotateY:"-70deg"}],
+                artworkPosition:[{translate:[15, 2, 4]},{rotateY:"-90deg"}] 
             }
         ]
     },
