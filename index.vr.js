@@ -22,9 +22,8 @@ import Testy from './components/Testy';
 export default class officeVRC9 extends React.Component {
   state = {
     tourList:[],
-    roomCounter:0,
-    roomImageUrl:'images/skola.jpg',
-    currentRoom:tourData[0],
+    roomCounter:2,
+    currentRoom:tourData[2],
     tourIsStarted:false,
     showArtwork:null
   }
@@ -70,7 +69,7 @@ export default class officeVRC9 extends React.Component {
        {/* {!tourIsStarted && 
         <LandingView onClick={this.startTour}/>
       } */}
-        {currentRoom && 
+        
         <View>
           <Pano source = {asset(currentRoom.sourceUrl)}/>
           <NextRoomButton
@@ -340,7 +339,7 @@ export default class officeVRC9 extends React.Component {
                 }}
               />:null
           }
-          {/* { currentRoom.artList[8] && <Button onClick = {()=>{this.toggleShowArtworkState(8)}} 
+           { currentRoom.artList[8] && <Button onClick = {()=>{this.toggleShowArtworkState(8)}} 
             buttonStyle = {{
             width: currentRoom.artList[8].buttonWidth,
             height:currentRoom.artList[8].buttonHeight,
@@ -374,8 +373,10 @@ export default class officeVRC9 extends React.Component {
           }
           { currentRoom.artList[9] && <Button onClick = {()=>{this.toggleShowArtworkState(9)}} 
             buttonStyle = {{
-            width: 4.7,
-            height:4.7,
+            width: currentRoom.artList[9].buttonWidth,
+            height:currentRoom.artList[9].buttonHeight,
+            borderColor:'black',
+            borderWidth:0.1,
             position:'absolute', 
             transform:currentRoom.artList[9].buttonPosition
             }}
@@ -402,7 +403,7 @@ export default class officeVRC9 extends React.Component {
                 }}
               />:null
           }
-          { currentRoom.artList[10] && <Button onClick = {()=>{this.toggleShowArtworkState(10)}} 
+          {/* { currentRoom.artList[10] && <Button onClick = {()=>{this.toggleShowArtworkState(10)}} 
             buttonStyle = {{
             width: 4.7,
             height:4.7,
@@ -551,9 +552,9 @@ export default class officeVRC9 extends React.Component {
                 transform:currentRoom.artList[4].artworkPosition
                 }}
               />:null
-          }                                                                  */}
+          }                                                                  */} 
         </View>
-        }
+        
       {/* {roomCounter === 1 &&
         <View>
           <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
