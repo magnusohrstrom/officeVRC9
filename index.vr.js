@@ -23,7 +23,7 @@ export default class officeVRC9 extends React.Component {
   state = {
     tourList:[],
     roomCounter:2,
-    currentRoom:tourData[2],
+    currentRoom:tourData[3],
     tourIsStarted:false,
     showArtwork:null
   }
@@ -94,8 +94,8 @@ export default class officeVRC9 extends React.Component {
             <Artwork 
               artworkTitle = {currentRoom.artList[0].title} 
               artworkArtist = {currentRoom.artList[0].artist}
-              textStyleTitle={{color:'white', fontSize:0.3}}
-              textStyleArtist={{color:'white', fontSize:0.2}}  
+              textStyleTitle={{color:'white', fontSize:0.5}}
+              textStyleArtist={{color:'white', fontSize:0.4}}  
               buttonStyle ={{
                 width:7.6,
                 height:7
