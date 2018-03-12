@@ -22,8 +22,8 @@ import Testy from './components/Testy';
 export default class officeVRC9 extends React.Component {
   state = {
     tourList:[],
-    roomCounter:6,
-    currentRoom:tourData[6],
+    roomCounter:8,
+    currentRoom:tourData[8],
     tourIsStarted:false,
     showArtwork:null
   }

@@ -489,188 +489,318 @@ export default tourData = [
     },
     {
         sourceUrl: 'images/martin1.jpg',
-        nextButtonPosition:[{translate: [5,-3,-6]}, {rotateX:"0deg"},{rotateY:"-40deg"}],
-        backButtonPosition:[{translate: [6,-2.4,6]}, {rotateX:"0deg"},{rotateY:"40deg"}],
+        nextButtonPosition:[{translate: [-8,-2.7,-1]}, {rotateX:"10deg"},{rotateY:"60deg"}],
+        backButtonPosition:[{translate: [2,-2.4,7]}, {rotateX:"70deg"},{rotateY:"0deg"}],
         artList : 
         [{
             title:'Untitled',
             artist:'Anonymous',
-            buttonHeight:5,
-            buttonWidth:7,
-            buttonPosition:[{translate: [-26, 1, -1.5]}, {rotateY:"90deg"}],
-            artworkPosition:[{translate:[-15, 5.8, -4.5]}, {rotateY:"90deg"}]
+            buttonHeight:4,
+            buttonWidth:4,
+            buttonPosition:[{translate: [-0.5, 0, 16]}, {rotateY:"90deg"}],
+            artworkPosition:[{translate:[-6.5, 5, 10]}, {rotateY:"180deg"}]
         },
         {
             title:'Untitled2',
             artist:'Anonymous',
-            buttonHeight:3,
-            buttonWidth:3,
-            buttonPosition:[{translate: [-20, 0, -9]}, {rotateY:"90deg"}],
-            artworkPosition:[{translate:[-15, 5.5, -8]},{rotateY:"80deg"}] 
+            buttonHeight:4,
+            buttonWidth:4,
+            buttonPosition:[{translate: [-9, 3, 13]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[-13, 7, 9]},{rotateY:"130deg"}] 
         },
         {
             title:'Untitled3',
             artist:'Anonymous',
-            buttonHeight:4,
-            buttonWidth:4,
-            buttonPosition:[{translate: [-12, 1, -8.3]}, {rotateY:"90deg"}],
-            artworkPosition:[{translate:[-13, 5, -12.3]},{rotateY:"50deg"}] 
+            buttonHeight:3,
+            buttonWidth:3,
+            buttonPosition:[{translate: [-17, 3, 13]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[-23, 7.4, 11]},{rotateY:"130deg"}] 
         },
         {
             title:'Untitled4',
             artist:'Anonymous',
-            buttonHeight:6,
-            buttonWidth:4,
-            buttonPosition:[{translate: [-12.5, -10, -6]}, {rotateY:"90deg"}],
-            artworkPosition:[{translate:[-13.5, -5, -10]},{rotateY:"60deg"},{rotateX:"-30deg"}] 
+            buttonHeight:4,
+            buttonWidth:5,
+            buttonPosition:[{translate: [-24, 6, 13]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[-27, 9, 10]},{rotateY:"130deg"}] 
         },
         {
             title:'Untitled5',
             artist:'Anonymous',
-            buttonHeight:9,
-            buttonWidth:8.2,
-            buttonPosition:[{translate: [-4.2, 4, -8]}, {rotateY:"0deg"}],
-            artworkPosition:[{translate:[2.2, 4, -10]},{rotateY:"0deg"}] 
+            buttonHeight:7,
+            buttonWidth:5,
+            buttonPosition:[{translate: [-24, 1, 5]}, {rotateY:"90deg"}],
+            artworkPosition:[{translate:[-24, 2, 1]},{rotateY:"100deg"}] 
         },
         {
             title:'Untitled6',
             artist:'Anonymous',
-            buttonHeight:3,
-            buttonWidth:3,
-            buttonPosition:[{translate: [8.2, 1, -10]}, {rotateY:"0deg"}],
-            artworkPosition:[{translate:[11.7, 5, -10]},{rotateY:"-40deg"}] 
+            buttonHeight:5,
+            buttonWidth:5,
+            buttonPosition:[{translate: [-24, 2, -10.5]}, {rotateY:"90deg"}],
+            artworkPosition:[{translate:[-24, 5, -13.5]},{rotateY:"90deg"}] 
         },
         {
             title:'Untitled7',
             artist:'Anonymous',
-            buttonHeight:5,
+            buttonHeight:6,
             buttonWidth:5,
-            buttonPosition:[{translate: [11, -2, -5]}, {rotateY:"-70deg"}],
-            artworkPosition:[{translate:[15, 1, -3]},{rotateY:"-70deg"}] 
+            buttonPosition:[{translate: [-10, 2, -10.5]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[-12, 4, -14.5]},{rotateY:"30deg"}] 
         },
         {
             title:'Untitled8',
             artist:'Anonymous',
-            buttonHeight:3,
-            buttonWidth:3,
-            buttonPosition:[{translate: [10, 1, 16]}, {rotateY:"0deg"}],
-            artworkPosition:[{translate:[4, 6.4, 18]},{rotateY:"-140deg"}] 
+            buttonHeight:6,
+            buttonWidth:4.5,
+            buttonPosition:[{translate: [-5, 2, -10.5]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[-3, 4, -15.5]},{rotateY:"20deg"}]
         },
         {
             title:'Untitled9',
             artist:'Anonymous',
-            buttonHeight:5,
-            buttonWidth:8,
-            buttonPosition:[{translate: [-5.5, 3, 14]}, {rotateY:"0deg"}],
-            artworkPosition:[{translate:[-12.5, 6, 16]},{rotateY:"180deg"}] 
-        },
-        {
-            title:'Untitled10',
-            artist:'Anonymous',
-            buttonHeight:7,
-            buttonWidth:9,
-            buttonPosition:[{translate: [-6, -4, 4]}, {rotateY:"0deg"},{rotateX:"30deg"}],
-            artworkPosition:[{translate:[-6, -4, 10]},{rotateY:"-180deg"},{rotateX:"-30deg"}] 
-        },
-        {
-            title:'Untitled11',
-            artist:'Anonymous',
-            buttonHeight:3,
-            buttonWidth:3,
-            buttonPosition:[{translate: [-24, 0, 15]}, {rotateY:"-45deg"}],
-            artworkPosition:[{translate:[-20, 5, 6]},{rotateY:"-225deg"}] 
+            buttonHeight:10,
+            buttonWidth:5,
+            buttonPosition:[{translate: [5.5, 2, 3]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[5.5, 2, 3]},{rotateY:"-90deg"}] 
         }
     ]
     },
     {
         sourceUrl: 'images/martin3.jpg',
-        nextButtonPosition:[{translate: [5,-3,-6]}, {rotateX:"0deg"},{rotateY:"-40deg"}],
-        backButtonPosition:[{translate: [6,-2.4,6]}, {rotateX:"0deg"},{rotateY:"40deg"}],
+        nextButtonPosition:[{translate: [5,-2.2,-5]}, {rotateX:"-10deg"},{rotateY:"-70deg"}],
+        backButtonPosition:[{translate: [2,-2.4,7]}, {rotateX:"70deg"},{rotateY:"0deg"}],
         artList : 
         [{
             title:'Untitled',
             artist:'Anonymous',
-            buttonHeight:5,
-            buttonWidth:7,
-            buttonPosition:[{translate: [-26, 1, -1.5]}, {rotateY:"90deg"}],
-            artworkPosition:[{translate:[-15, 5.8, -4.5]}, {rotateY:"90deg"}]
+            buttonHeight:2,
+            buttonWidth:2,
+            buttonPosition:[{translate: [-3.9, 1, 12]}, {rotateY:"140deg"}],
+            artworkPosition:[{translate:[-10, 6, 12]}, {rotateY:"160deg"}]
         },
         {
             title:'Untitled2',
             artist:'Anonymous',
-            buttonHeight:3,
-            buttonWidth:3,
-            buttonPosition:[{translate: [-20, 0, -9]}, {rotateY:"90deg"}],
-            artworkPosition:[{translate:[-15, 5.5, -8]},{rotateY:"80deg"}] 
+            buttonHeight:4,
+            buttonWidth:4,
+            buttonPosition:[{translate: [-10.5, 3, 13]}, {rotateY:"140deg"}],
+            artworkPosition:[{translate:[-13, 7, 9]},{rotateY:"130deg"}] 
         },
         {
             title:'Untitled3',
             artist:'Anonymous',
-            buttonHeight:4,
+            buttonHeight:3,
             buttonWidth:4,
-            buttonPosition:[{translate: [-12, 1, -8.3]}, {rotateY:"90deg"}],
-            artworkPosition:[{translate:[-13, 5, -12.3]},{rotateY:"50deg"}] 
+            buttonPosition:[{translate: [-22, 3, 13]}, {rotateY:"90deg"}],
+            artworkPosition:[{translate:[-25, 12.4, 11]},{rotateY:"130deg"}] 
         },
         {
             title:'Untitled4',
             artist:'Anonymous',
             buttonHeight:6,
-            buttonWidth:4,
-            buttonPosition:[{translate: [-12.5, -10, -6]}, {rotateY:"90deg"}],
-            artworkPosition:[{translate:[-13.5, -5, -10]},{rotateY:"60deg"},{rotateX:"-30deg"}] 
+            buttonWidth:8,
+            buttonPosition:[{translate: [-32, 9, 6]}, {rotateY:"90deg"}],
+            artworkPosition:[{translate:[-27, 14, -1]},{rotateY:"100deg"}] 
         },
         {
             title:'Untitled5',
             artist:'Anonymous',
-            buttonHeight:9,
-            buttonWidth:8.2,
-            buttonPosition:[{translate: [-4.2, 4, -8]}, {rotateY:"0deg"}],
-            artworkPosition:[{translate:[2.2, 4, -10]},{rotateY:"0deg"}] 
+            buttonHeight:4,
+            buttonWidth:6,
+            buttonPosition:[{translate: [-10, 0.4, 2]}, {rotateY:"120deg"}],
+            artworkPosition:[{translate:[-16, 5, -1]},{rotateY:"100deg"}] 
         },
         {
             title:'Untitled6',
             artist:'Anonymous',
-            buttonHeight:3,
-            buttonWidth:3,
-            buttonPosition:[{translate: [8.2, 1, -10]}, {rotateY:"0deg"}],
-            artworkPosition:[{translate:[11.7, 5, -10]},{rotateY:"-40deg"}] 
+            buttonHeight:5,
+            buttonWidth:5,
+            buttonPosition:[{translate: [1, 2, -10.5]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[3, 4, -13.5]},{rotateY:"-10deg"}] 
         },
         {
             title:'Untitled7',
             artist:'Anonymous',
-            buttonHeight:5,
+            buttonHeight:7,
             buttonWidth:5,
-            buttonPosition:[{translate: [11, -2, -5]}, {rotateY:"-70deg"}],
-            artworkPosition:[{translate:[15, 1, -3]},{rotateY:"-70deg"}] 
+            buttonPosition:[{translate: [8, 3, -1]}, {rotateY:"120deg"}],
+            artworkPosition:[{translate:[10, 4, 2]},{rotateY:"-80deg"}] 
         },
         {
             title:'Untitled8',
             artist:'Anonymous',
-            buttonHeight:3,
-            buttonWidth:3,
-            buttonPosition:[{translate: [10, 1, 16]}, {rotateY:"0deg"}],
-            artworkPosition:[{translate:[4, 6.4, 18]},{rotateY:"-140deg"}] 
+            buttonHeight:7,
+            buttonWidth:5,
+            buttonPosition:[{translate: [10, 3, 3.6]}, {rotateY:"120deg"}],
+            artworkPosition:[{translate:[12, 4, 8]},{rotateY:"-90deg"}]
         },
         {
             title:'Untitled9',
             artist:'Anonymous',
-            buttonHeight:5,
-            buttonWidth:8,
-            buttonPosition:[{translate: [-5.5, 3, 14]}, {rotateY:"0deg"}],
-            artworkPosition:[{translate:[-12.5, 6, 16]},{rotateY:"180deg"}] 
+            buttonHeight:10,
+            buttonWidth:5,
+            buttonPosition:[{translate: [3.5, 3, 28]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[-4, 4, 18]},{rotateY:"-170deg"}] 
         }
     ]
     },
     {
         sourceUrl: 'images/martin4.jpg',
-        nextButtonPosition:[-1,0,-10],
-        backButtonPosition:[0,0,10],
-        artList : ['images/mountain.jpg', 'images/magnus.jpg']
+        nextButtonPosition:[{translate: [-1,-2.4,7]}, {rotateX:"40deg"},{rotateY:"-10deg"}],
+        backButtonPosition:[{translate: [-8.2,-3,0]}, {rotateX:"0deg"},{rotateY:"90deg"}],
+        artList : 
+        [{
+            title:'Untitled',
+            artist:'Anonymous',
+            buttonHeight:3,
+            buttonWidth:3,
+            buttonPosition:[{translate: [-17, 1, 14]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[-16, 6, 8]},{rotateY:"130deg"}]
+        },
+        {
+            title:'Untitled2',
+            artist:'Anonymous',
+            buttonHeight:4,
+            buttonWidth:4,
+            buttonPosition:[{translate: [-20, 3, 10]}, {rotateY:"90deg"}],
+            artworkPosition:[{translate:[-18, 7, 5]},{rotateY:"130deg"}] 
+        },
+        {
+            title:'Untitled3',
+            artist:'Anonymous',
+            buttonHeight:2,
+            buttonWidth:2,
+            buttonPosition:[{translate: [-20, 2, 5]}, {rotateY:"90deg"}],
+            artworkPosition:[{translate:[-25, 11.4, 4]},{rotateY:"130deg"}] 
+        },
+        {
+            title:'Untitled4',
+            artist:'Anonymous',
+            buttonHeight:3,
+            buttonWidth:3,
+            buttonPosition:[{translate: [-18, 4, 0]}, {rotateY:"90deg"}],
+            artworkPosition:[{translate:[-27, 9, -4]},{rotateY:"100deg"}] 
+        },
+        {
+            title:'Untitled5',
+            artist:'Anonymous',
+            buttonHeight:7,
+            buttonWidth:7,
+            buttonPosition:[{translate: [-24, 1, 4]}, {rotateY:"90deg"}],
+            artworkPosition:[{translate:[-24, 2, 0]},{rotateY:"100deg"}] 
+        },
+        {
+            title:'Untitled6',
+            artist:'Anonymous',
+            buttonHeight:10,
+            buttonWidth:10,
+            buttonPosition:[{translate: [-5.7, 5, -10.5]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[1.7, 5, -10.5]},{rotateY:"0deg"}] 
+        },
+        {
+            title:'Untitled7',
+            artist:'Anonymous',
+            buttonHeight:10,
+            buttonWidth:5,
+            buttonPosition:[{translate: [2.3, 4.5, 10.5]}, {rotateY:"-90deg"}],
+            artworkPosition:[{translate:[1.3, 4.5, 10.5]},{rotateY:"220deg"}] 
+        },
+        {
+            title:'Untitled8',
+            artist:'Anonymous',
+            buttonHeight:10,
+            buttonWidth:4.5,
+            buttonPosition:[{translate: [2, 4.5, 15.5]}, {rotateY:"-90deg"}],
+            artworkPosition:[{translate:[-4, 4.5, 17.5]},{rotateY:"200deg"}]
+        },
+        {
+            title:'Untitled9',
+            artist:'Anonymous',
+            buttonHeight:10,
+            buttonWidth:5,
+            buttonPosition:[{translate: [-15.5, 2, 22]}, {rotateY:"180deg"}],
+            artworkPosition:[{translate:[-18.5,4, 20]},{rotateY:"140deg"}] 
+        }
+    ]
     },
     {
         sourceUrl: 'images/martin5.jpg',
-        nextButtonPosition:[-1,0,-10],
-        backButtonPosition:[0,0,10],
-        artList : ['images/mountain.jpg', 'images/magnus.jpg']
+        nextButtonPosition:[{translate: [-10,-2.7,-3]}, {rotateX:"10deg"},{rotateY:"60deg"}],
+        backButtonPosition:[{translate: [2,-2.4,7]}, {rotateX:"70deg"},{rotateY:"0deg"}],
+        artList : 
+        [{
+            title:'Untitled',
+            artist:'Anonymous',
+            buttonHeight:4,
+            buttonWidth:4,
+            buttonPosition:[{translate: [-0.5, 0, 16]}, {rotateY:"90deg"}],
+            artworkPosition:[{translate:[-6.5, 5, 10]}, {rotateY:"180deg"}]
+        },
+        {
+            title:'Untitled2',
+            artist:'Anonymous',
+            buttonHeight:4,
+            buttonWidth:4,
+            buttonPosition:[{translate: [-9, 3, 13]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[-13, 7, 9]},{rotateY:"130deg"}] 
+        },
+        {
+            title:'Untitled3',
+            artist:'Anonymous',
+            buttonHeight:3,
+            buttonWidth:3,
+            buttonPosition:[{translate: [-17, 3, 13]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[-23, 7.4, 11]},{rotateY:"130deg"}] 
+        },
+        {
+            title:'Untitled4',
+            artist:'Anonymous',
+            buttonHeight:4,
+            buttonWidth:5,
+            buttonPosition:[{translate: [-24, 6, 13]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[-27, 9, 10]},{rotateY:"130deg"}] 
+        },
+        {
+            title:'Untitled5',
+            artist:'Anonymous',
+            buttonHeight:7,
+            buttonWidth:5,
+            buttonPosition:[{translate: [-24, 1, 5]}, {rotateY:"90deg"}],
+            artworkPosition:[{translate:[-24, 2, 1]},{rotateY:"100deg"}] 
+        },
+        {
+            title:'Untitled6',
+            artist:'Anonymous',
+            buttonHeight:5,
+            buttonWidth:5,
+            buttonPosition:[{translate: [-24, 2, -10.5]}, {rotateY:"90deg"}],
+            artworkPosition:[{translate:[-24, 5, -13.5]},{rotateY:"90deg"}] 
+        },
+        {
+            title:'Untitled7',
+            artist:'Anonymous',
+            buttonHeight:6,
+            buttonWidth:5,
+            buttonPosition:[{translate: [-10, 2, -10.5]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[-12, 4, -14.5]},{rotateY:"30deg"}] 
+        },
+        {
+            title:'Untitled8',
+            artist:'Anonymous',
+            buttonHeight:6,
+            buttonWidth:4.5,
+            buttonPosition:[{translate: [-5, 2, -10.5]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[-3, 4, -15.5]},{rotateY:"20deg"}]
+        },
+        {
+            title:'Untitled9',
+            artist:'Anonymous',
+            buttonHeight:10,
+            buttonWidth:5,
+            buttonPosition:[{translate: [5.5, 2, 3]}, {rotateY:"0deg"}],
+            artworkPosition:[{translate:[5.5, 2, 3]},{rotateY:"-90deg"}] 
+        }
+    ]
     }
 ]
