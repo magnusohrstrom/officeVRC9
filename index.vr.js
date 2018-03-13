@@ -17,13 +17,14 @@ import Button from './components/Button';
 import LandingView from './components/LandingView';
 import Artwork from './components/Artwork';
 import Testy from './components/Testy';
+import WelcomeText from './components/WelcomeText';
 
 
 export default class officeVRC9 extends React.Component {
   state = {
     tourList:[],
-    roomCounter:8,
-    currentRoom:tourData[8],
+    roomCounter:0,
+    currentRoom:tourData[0],
     tourIsStarted:false,
     showArtwork:null
   }
@@ -32,14 +33,25 @@ export default class officeVRC9 extends React.Component {
     if(x==="next"){
       this.setState({
         roomCounter:this.state.roomCounter+1,
-        currentRoom:this.state.tourList[this.state.roomCounter+1]
+        currentRoom:this.state.tourList[this.state.roomCounter+1],
+        showArtwork:null
+        
       })
     }
     else{
       this.setState({
         roomCounter:this.state.roomCounter-1,
-        currentRoom:this.state.tourList[this.state.roomCounter-1]
+        currentRoom:this.state.tourList[this.state.roomCounter-1],
+        showArtwork:null
     });}
+  }
+
+  setRoomToCustomByButtonClick = (x) => {
+      this.setState({
+        currentRoom:this.state.tourList[x],
+        roomCounter:x,
+        showArtwork:null
+      });
   }
 
   startTour = () => {
@@ -66,26 +78,37 @@ export default class officeVRC9 extends React.Component {
     
     return (
     <View>
-       {/* {!tourIsStarted && 
+{/*          {!tourIsStarted && 
         <LandingView onClick={this.startTour}/>
-      } */}
-        
-        <View>
-          <Pano source = {asset(currentRoom.sourceUrl)}/>
-          <NextRoomButton
+      }   */}
+        {!tourIsStarted && <WelcomeText/>}
+        {roomCounter !== null && <View>
+           <Pano source = {asset(currentRoom.sourceUrl)}/>
+          {roomCounter !== 9 && <NextRoomButton
             translateCoordinates = {currentRoom.nextButtonPosition}
             onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
             />
-          {currentRoom !== tourData[0] && <NextRoomButton
+          }
+          {roomCounter !== 0 && <NextRoomButton
             translateCoordinates = {currentRoom.backButtonPosition}
             onClick = {this.changeRoomBySetStateOfRoomCounter}
           />}
+          {roomCounter === 3 && 
+            <NextRoomButton
+            translateCoordinates = {currentRoom.shortcutButtonPosition}
+            onClick = {()=>{this.setRoomToCustomByButtonClick(5)}}
+          />
+          }
+
+          {roomCounter === 9 && <NextRoomButton
+            translateCoordinates = {currentRoom.nextButtonPosition}
+            onClick = {()=>{this.setRoomToCustomByButtonClick(6)}}
+            />}
           { currentRoom.artList[0] && <Button onClick = {()=>{this.toggleShowArtworkState(0)}} 
             buttonStyle = {{
             width: currentRoom.artList[0].buttonWidth,
             height:currentRoom.artList[0].buttonHeight,
-            borderColor:'black',
-            borderWidth:0.1, 
+
             position:"absolute",
             transform: currentRoom.artList[0].buttonPosition
             }}
@@ -94,12 +117,13 @@ export default class officeVRC9 extends React.Component {
             <Artwork 
               artworkTitle = {currentRoom.artList[0].title} 
               artworkArtist = {currentRoom.artList[0].artist}
-              textStyleTitle={{color:'white', fontSize:0.5}}
+              textStyleTitle={{color:'white', fontSize:0.5,
+              fontWeight:"600"}}
               textStyleArtist={{color:'white', fontSize:0.4}}  
-              buttonStyle ={{
+               buttonStyle ={{
                 width:7.6,
                 height:7
-              }}
+              }} 
               
               onClick = {this.toggleShowArtworkState}
               viewStyle= {{
@@ -117,8 +141,7 @@ export default class officeVRC9 extends React.Component {
             buttonStyle = {{
             width: currentRoom.artList[1].buttonWidth,
             height:currentRoom.artList[1].buttonHeight,
-            borderColor:'black',
-            borderWidth:0.1, 
+
             position:"absolute",
             transform:currentRoom.artList[1].buttonPosition
           }}/>
@@ -127,7 +150,8 @@ export default class officeVRC9 extends React.Component {
             <Artwork 
               artworkTitle = {currentRoom.artList[1].title} 
               artworkArtist = {currentRoom.artList[1].artist}
-              textStyleTitle={{color:'white', fontSize:0.5}}
+              textStyleTitle={{color:'white', fontSize:0.5,
+              fontWeight:"600"}}
               textStyleArtist={{color:'white', fontSize:0.4}}
               buttonStyle ={{
                 width:7.6,
@@ -151,8 +175,7 @@ export default class officeVRC9 extends React.Component {
             buttonStyle = {{
             width: currentRoom.artList[2].buttonWidth,
             height:currentRoom.artList[2].buttonHeight,
-            borderColor:'black',
-            borderWidth:0.1,
+            
             position:"absolute", 
             transform:currentRoom.artList[2].buttonPosition
             }}
@@ -161,11 +184,19 @@ export default class officeVRC9 extends React.Component {
             <Artwork 
               artworkTitle = {currentRoom.artList[2].title} 
               artworkArtist = {currentRoom.artList[2].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
-              textStyleArtist={{color:'white', fontSize:0.7}}
+              textStyleTitle={{
+                color:'white', 
+                fontSize:0.8,
+                fontWeight:"600"
+              }}
+              textStyleArtist={{
+                color:'white', 
+                fontSize:0.7
+              }}
               buttonStyle ={{
                 width:7.6,
-                height:7
+                height:7,
+                
               }}
               onClick = {this.toggleShowArtworkState}
               viewStyle= {{
@@ -173,8 +204,7 @@ export default class officeVRC9 extends React.Component {
                 width:8,
                 height:8,
                 flexDirection:"column", 
-                padding:0.2, 
-                
+                padding:0.2,
                 transform:currentRoom.artList[2].artworkPosition
                 }}
               />:null
@@ -183,8 +213,7 @@ export default class officeVRC9 extends React.Component {
             buttonStyle = {{
             width: currentRoom.artList[3].buttonWidth,
             height:currentRoom.artList[3].buttonHeight,
-            borderColor:'black',
-            borderWidth:0.1,
+            
             position:'absolute', 
             transform:currentRoom.artList[3].buttonPosition
             }}
@@ -193,7 +222,8 @@ export default class officeVRC9 extends React.Component {
             <Artwork 
               artworkTitle = {currentRoom.artList[3].title} 
               artworkArtist = {currentRoom.artList[3].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
+              textStyleTitle={{color:'white', fontSize:0.8,
+              fontWeight:"600"}}
               textStyleArtist={{color:'white', fontSize:0.7}}
               buttonStyle ={{
                 width:7.6,
@@ -215,8 +245,7 @@ export default class officeVRC9 extends React.Component {
             buttonStyle = {{
             width: currentRoom.artList[4].buttonWidth,
             height:currentRoom.artList[4].buttonHeight,
-            borderColor:'black',
-            borderWidth:0.1,
+            
             position:'absolute', 
             transform:currentRoom.artList[4].buttonPosition
             }}
@@ -225,7 +254,8 @@ export default class officeVRC9 extends React.Component {
             <Artwork 
               artworkTitle = {currentRoom.artList[4].title} 
               artworkArtist = {currentRoom.artList[4].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
+              textStyleTitle={{color:'white', fontSize:0.8,
+                fontWeight:"600"}}
               textStyleArtist={{color:'white', fontSize:0.7}}
               buttonStyle ={{
                 width:7.6,
@@ -247,8 +277,7 @@ export default class officeVRC9 extends React.Component {
             buttonStyle = {{
             width: currentRoom.artList[5].buttonWidth,
             height:currentRoom.artList[5].buttonHeight,
-            borderColor:'black',
-            borderWidth:0.1,
+            
             position:'absolute', 
             transform:currentRoom.artList[5].buttonPosition
             }}
@@ -257,7 +286,8 @@ export default class officeVRC9 extends React.Component {
             <Artwork 
               artworkTitle = {currentRoom.artList[5].title} 
               artworkArtist = {currentRoom.artList[5].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
+              textStyleTitle={{color:'white', fontSize:0.8,
+                fontWeight:"600"}}
               textStyleArtist={{color:'white', fontSize:0.7}}
               buttonStyle ={{
                 width:7.6,
@@ -279,8 +309,7 @@ export default class officeVRC9 extends React.Component {
             buttonStyle = {{
             width: currentRoom.artList[6].buttonWidth,
             height:currentRoom.artList[6].buttonHeight,
-            borderColor:'black',
-            borderWidth:0.1,
+            
             position:'absolute', 
             transform:currentRoom.artList[6].buttonPosition
             }}
@@ -289,7 +318,8 @@ export default class officeVRC9 extends React.Component {
             <Artwork 
               artworkTitle = {currentRoom.artList[6].title} 
               artworkArtist = {currentRoom.artList[6].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
+              textStyleTitle={{color:'white', fontSize:0.8,
+                fontWeight:"600"}}
               textStyleArtist={{color:'white', fontSize:0.7}}
               buttonStyle ={{
                 width:7.6,
@@ -311,8 +341,7 @@ export default class officeVRC9 extends React.Component {
             buttonStyle = {{
             width: currentRoom.artList[7].buttonWidth,
             height:currentRoom.artList[7].buttonHeight,
-            borderColor:'black',
-            borderWidth:0.1,
+            
             position:'absolute', 
             transform:currentRoom.artList[7].buttonPosition
             }}
@@ -321,7 +350,8 @@ export default class officeVRC9 extends React.Component {
             <Artwork 
               artworkTitle = {currentRoom.artList[7].title} 
               artworkArtist = {currentRoom.artList[7].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
+              textStyleTitle={{color:'white', fontSize:0.8,
+                fontWeight:"600"}}
               textStyleArtist={{color:'white', fontSize:0.7}}
               buttonStyle ={{
                 width:7.6,
@@ -343,8 +373,7 @@ export default class officeVRC9 extends React.Component {
             buttonStyle = {{
             width: currentRoom.artList[8].buttonWidth,
             height:currentRoom.artList[8].buttonHeight,
-             borderColor:'black',
-            borderWidth:0.1,
+             
             position:'absolute', 
             transform:currentRoom.artList[8].buttonPosition
             }}
@@ -353,7 +382,8 @@ export default class officeVRC9 extends React.Component {
             <Artwork 
               artworkTitle = {currentRoom.artList[8].title} 
               artworkArtist = {currentRoom.artList[8].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
+              textStyleTitle={{color:'white', fontSize:0.8,
+                fontWeight:"600"}}
               textStyleArtist={{color:'white', fontSize:0.7}}
               buttonStyle ={{
                 width:7.6,
@@ -375,8 +405,7 @@ export default class officeVRC9 extends React.Component {
             buttonStyle = {{
             width: currentRoom.artList[9].buttonWidth,
             height:currentRoom.artList[9].buttonHeight,
-            borderColor:'black',
-            borderWidth:0.1,
+            
             position:'absolute', 
             transform:currentRoom.artList[9].buttonPosition
             }}
@@ -385,7 +414,8 @@ export default class officeVRC9 extends React.Component {
             <Artwork 
               artworkTitle = {currentRoom.artList[9].title} 
               artworkArtist = {currentRoom.artList[9].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
+              textStyleTitle={{color:'white', fontSize:0.8,
+                fontWeight:"600"}}
               textStyleArtist={{color:'white', fontSize:0.7}}
               buttonStyle ={{
                 width:7.6,
@@ -407,8 +437,7 @@ export default class officeVRC9 extends React.Component {
             buttonStyle = {{
             width: 4.7,
             height:4.7,
-            borderColor:'black',
-            borderWidth:0.1,
+            
             position:'absolute', 
             transform:currentRoom.artList[10].buttonPosition
             }}
@@ -417,7 +446,8 @@ export default class officeVRC9 extends React.Component {
             <Artwork 
               artworkTitle = {currentRoom.artList[10].title} 
               artworkArtist = {currentRoom.artList[10].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
+              textStyleTitle={{color:'white', fontSize:0.8,
+                fontWeight:"600"}}
               textStyleArtist={{color:'white', fontSize:0.7}}
               buttonStyle ={{
                 width:7.6,
@@ -435,319 +465,8 @@ export default class officeVRC9 extends React.Component {
                 }}
               />:null
           }
-          {/* { currentRoom.artList[10] && <Button onClick = {()=>{this.toggleShowArtworkState(10)}} 
-            buttonStyle = {{
-            width: 4.7,
-            height:4.7,
-            position:'absolute', 
-            transform:currentRoom.artList[10].buttonPosition
-            }}
-          />}
-          { showArtwork === 10 ? 
-            <Artwork 
-              artworkTitle = {currentRoom.artList[10].title} 
-              artworkArtist = {currentRoom.artList[10].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
-              textStyleArtist={{color:'white', fontSize:0.7}}
-              buttonStyle ={{
-                width:7.6,
-                height:7
-              }}
-              onClick = {this.toggleShowArtworkState}
-              viewStyle= {{
-                position:'absolute',
-                width:8,
-                height:8,
-                flexDirection:"column", 
-                padding:0.2, 
-                
-                transform:currentRoom.artList[10].artworkPosition
-                }}
-              />:null
-          }
-          { currentRoom.artList[11] && <Button onClick = {()=>{this.toggleShowArtworkState(11)}} 
-            buttonStyle = {{
-            width: 4.7,
-            height:4.7,
-            position:'absolute', 
-            transform:currentRoom.artList[4].buttonPosition
-            }}
-          />}
-          { showArtwork === 11 ? 
-            <Artwork 
-              artworkTitle = {currentRoom.artList[11].title} 
-              artworkArtist = {currentRoom.artList[11].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
-              textStyleArtist={{color:'white', fontSize:0.7}}
-              buttonStyle ={{
-                width:7.6,
-                height:7
-              }}
-              onClick = {this.toggleShowArtworkState}
-              viewStyle= {{
-                position:'absolute',
-                width:8,
-                height:8,
-                flexDirection:"column", 
-                padding:0.2, 
-                
-                transform:currentRoom.artList[4].artworkPosition
-                }}
-              />:null
-          }
-          { currentRoom.artList[12] && <Button onClick = {()=>{this.toggleShowArtworkState(12)}} 
-            buttonStyle = {{
-            width: 4.7,
-            height:4.7,
-            position:'absolute', 
-            transform:currentRoom.artList[4].buttonPosition
-            }}
-          />}
-          { showArtwork === 12 ? 
-            <Artwork 
-              artworkTitle = {currentRoom.artList[12].title} 
-              artworkArtist = {currentRoom.artList[12].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
-              textStyleArtist={{color:'white', fontSize:0.7}}
-              buttonStyle ={{
-                width:7.6,
-                height:7
-              }}
-              onClick = {this.toggleShowArtworkState}
-              viewStyle= {{
-                position:'absolute',
-                width:8,
-                height:8,
-                flexDirection:"column", 
-                padding:0.2, 
-                
-                transform:currentRoom.artList[4].artworkPosition
-                }}
-              />:null
-          }       
-          { currentRoom.artList[13] && <Button onClick = {()=>{this.toggleShowArtworkState(13)}} 
-            buttonStyle = {{
-            width: 4.7,
-            height:4.7,
-            position:'absolute', 
-            transform:currentRoom.artList[4].buttonPosition
-            }}
-          />}
-          { showArtwork === 13 ? 
-            <Artwork 
-              artworkTitle = {currentRoom.artList[13].title} 
-              artworkArtist = {currentRoom.artList[13].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
-              textStyleArtist={{color:'white', fontSize:0.7}}
-              buttonStyle ={{
-                width:7.6,
-                height:7
-              }}
-              onClick = {this.toggleShowArtworkState}
-              viewStyle= {{
-                position:'absolute',
-                width:8,
-                height:8,
-                flexDirection:"column", 
-                padding:0.2, 
-                
-                transform:currentRoom.artList[4].artworkPosition
-                }}
-              />:null
-          }
-          { currentRoom.artList[14] && <Button onClick = {()=>{this.toggleShowArtworkState(14)}} 
-            buttonStyle = {{
-            width: 4.7,
-            height:4.7,
-            position:'absolute', 
-            transform:currentRoom.artList[4].buttonPosition
-            }}
-          />}
-          { showArtwork === 14 ? 
-            <Artwork 
-              artworkTitle = {currentRoom.artList[14].title} 
-              artworkArtist = {currentRoom.artList[14].artist}
-              textStyleTitle={{color:'white', fontSize:0.8}}
-              textStyleArtist={{color:'white', fontSize:0.7}}
-              buttonStyle ={{
-                width:7.6,
-                height:7
-              }}
-              onClick = {this.toggleShowArtworkState}
-              viewStyle= {{
-                position:'absolute',
-                width:8,
-                height:8,
-                flexDirection:"column", 
-                padding:0.2, 
-                
-                transform:currentRoom.artList[4].artworkPosition
-                }}
-              />:null
-          }                                                                  */} 
-        </View>
-        
-      {/* {roomCounter === 1 &&
-        <View>
-          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <NextRoomButton 
-            translateCoordinates = {{translate:[0,-2,-10]}}
-            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
-            /> 
-          <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
-            <Button buttonStyle= {{width: 2.7, 
-            transform:[{translate: [-10, 0, -10]},
-            {rotateY:"90deg"}]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-            /> 
         </View>
       }
-      {roomCounter === 2 &&
-        <View>
-          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <NextRoomButton 
-            translateCoordinates = {{translate:[ 0, 4, -10]}}
-            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
-            /> 
-          <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
-        </View>
-      }
-      {roomCounter === 3 &&
-        <View>
-          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <NextRoomButton 
-            translateCoordinates = {{translate:[ 0, 4, -10]}}
-            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
-            /> 
-          <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
-        </View>
-      }
-      {roomCounter === 4 &&
-        <View>
-          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <NextRoomButton 
-            translateCoordinates = {{translate:[ 0, 4, -10]}}
-            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
-            /> 
-          <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
-        </View>
-      }
-      {roomCounter === 5 &&
-        <View>
-          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <NextRoomButton 
-            translateCoordinates = {{translate:[ 0, 4, -10]}}
-            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
-            /> 
-          <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
-        </View>
-      }
-      {roomCounter === 6 &&
-        <View>
-          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <NextRoomButton 
-            translateCoordinates = {{translate:[ 0, 4, -10]}}
-            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
-            /> 
-          <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
-        </View>
-      }
-      {roomCounter === 7 &&
-        <View>
-          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <NextRoomButton 
-            translateCoordinates = {{translate:[ 0, 4, -10]}}
-            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
-            /> 
-          <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
-        </View>
-      }
-      {roomCounter === 8 &&
-        <View>
-          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <NextRoomButton 
-            translateCoordinates = {{translate:[ 0, 4, -10]}}
-            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
-            /> 
-          <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
-        </View>
-      }
-      {roomCounter === 9 &&
-        <View>
-          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <NextRoomButton 
-            translateCoordinates = {{translate:[ 0, 4, -10]}}
-            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
-            /> 
-          <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
-        </View>
-      }
-      {roomCounter === 10 &&
-        <View>
-          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <NextRoomButton 
-            translateCoordinates = {{translate:[ 0, 4, -10]}}
-            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
-            /> 
-          <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
-        </View>
-      }
-      {roomCounter === 11 &&
-        <View>
-          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <NextRoomButton 
-            translateCoordinates = {{translate:[ 0, 4, -10]}}
-            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
-            /> 
-          <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
-        </View>
-      }
-      {roomCounter === 12 &&
-        <View>
-          <Pano source={asset(tourList[roomCounter].sourceUrl)}/>
-          <NextRoomButton 
-            translateCoordinates = {{translate:[ 0, 4, -10]}}
-            onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
-            /> 
-          <NextRoomButton
-            translateCoordinates = {{translate:[0,0,10]}}
-            onClick = {this.changeRoomBySetStateOfRoomCounter}
-          />
-        </View>
-      } */}
     </View>
     );
   }
