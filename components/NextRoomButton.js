@@ -13,7 +13,7 @@ const NextRoomButton = (props) => {
                 position:"absolute",
                 transform: props.translateCoordinates 
                 }}
-                sourceUrl = {asset("images/Resurs5.png")}
+                sourceUrl = {asset("images/Resurs4.png")}
                 imageStyle={{width:1.2,height:1.2, position:"absolute"}}
             {...props}/>   
         </View>      

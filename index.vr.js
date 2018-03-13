@@ -63,8 +63,8 @@ export default class officeVRC9 extends React.Component {
 
   toggleShowArtworkState = (x) => {
     !this.state.showArtwork === null || this.state.showArtwork === x ? 
-    this.setState({showArtwork:null})  
-    :this.setState({ showArtwork: x }) ; 
+    this.setState({showArtwork:null, tourIsStarted:true})  
+    :this.setState({ showArtwork: x, tourIsStarted:true }) ; 
   }
 
   componentWillMount = () => {
@@ -78,10 +78,7 @@ export default class officeVRC9 extends React.Component {
     
     return (
     <View>
-{/*          {!tourIsStarted && 
-        <LandingView onClick={this.startTour}/>
-      }   */}
-        {!tourIsStarted && <WelcomeText/>}
+        {!tourIsStarted && <WelcomeText onClick={this.startTour}/>}
         {roomCounter !== null && <View>
            <Pano source = {asset(currentRoom.sourceUrl)}/>
           {roomCounter !== 9 && <NextRoomButton

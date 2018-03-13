@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
     asset,
     VrButton,
@@ -17,6 +16,3 @@ const Button = (props) => {
 
 export default Button;
 
-Button.propTypes = {
-    className: PropTypes.string
-}

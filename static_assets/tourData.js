@@ -10,7 +10,7 @@ export default tourData = [
                 buttonHeight:3.7,
                 buttonWidth:3.7,
                 buttonPosition:[{translate: [-11, 5, -3]}, {rotateY:"90deg"}],
-                artworkPosition:[{translate:[-10, 10, -5]}, {rotateY:"70deg"}]
+                artworkPosition:[{translate:[-12, 10, -7]}, {rotateY:"70deg"}]
             },
             {
                 title:'Untitled2',
@@ -26,7 +26,7 @@ export default tourData = [
                 buttonHeight:5.7,
                 buttonWidth:5.7,
                 buttonPosition:[{translate: [-11, 2, -21]}, {rotateY:"90deg"}],
-                artworkPosition:[{translate:[-11, 6, -27]},{rotateY:"40deg"}] 
+                artworkPosition:[{translate:[-9.5, 6, -24]},{rotateY:"40deg"}] 
             },
             {
                 title:'Untitled4',
@@ -83,7 +83,7 @@ export default tourData = [
                 buttonHeight:5.7,
                 buttonWidth:4.7,
                 buttonPosition:[{translate: [-16, 8, 11]}, {rotateY:"90deg"}],
-                artworkPosition:[{translate:[-11, 8, 2]}, {rotateY:"150deg"}]
+                artworkPosition:[{translate:[-14, 8, 4]}, {rotateY:"150deg"}]
             },
             {
                 title:'Untitled2',
@@ -116,7 +116,7 @@ export default tourData = [
                 buttonHeight:6,
                 buttonWidth:6,
                 buttonPosition:[{translate: [-3.5, 7.5, -27]}],
-                artworkPosition:[{translate:[0, 10.5, -27]}]
+                artworkPosition:[{translate:[0, 10.5, -22]}]
                  
             },
             {
@@ -124,8 +124,8 @@ export default tourData = [
                 artist:'Anonymous',
                 buttonHeight:8,
                 buttonWidth:6,
-                buttonPosition:[{translate:[11, 0, -20]},{rotateY:"-45deg"}],
-                artworkPosition:[{translate:[13, 2, -20]},{rotateY:"-45deg"}]
+                buttonPosition:[{translate:[15, 0, -25]},{rotateY:"-45deg"}],
+                artworkPosition:[{translate:[10, 2, -14]},{rotateY:"-35deg"}]
                 
             },
             {
@@ -168,7 +168,7 @@ export default tourData = [
                 buttonHeight:5,
                 buttonWidth:5,
                 buttonPosition:[{translate: [-15, 9, 28]}, {rotateY:"120deg"}],
-                artworkPosition:[{translate:[-11, 9, 6]}, {rotateY:"145deg"}]
+                artworkPosition:[{translate:[-12, 9, 9]}, {rotateY:"145deg"}]
             },
             {
                 title:'Untitled32',
@@ -240,7 +240,7 @@ export default tourData = [
                 buttonHeight:7,
                 buttonWidth:7,
                 buttonPosition:[{translate:[9, -4, 38]}, { rotateY:"-145deg"}],
-                artworkPosition:[{translate:[4, 0, 38]}, { rotateY:"-145deg"}]
+                artworkPosition:[{translate:[2, 0, 28]}, { rotateY:"-145deg"}]
             }
         ]
     },
