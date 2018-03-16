@@ -23,8 +23,8 @@ import WelcomeText from './components/WelcomeText';
 export default class officeVRC9 extends React.Component {
   state = {
     tourList:[],
-    roomCounter:0,
-    currentRoom:tourData[0],
+    roomCounter:6,
+    currentRoom:tourData[6],
     tourIsStarted:false,
     showArtwork:null
   }
@@ -34,7 +34,8 @@ export default class officeVRC9 extends React.Component {
       this.setState({
         roomCounter:this.state.roomCounter+1,
         currentRoom:this.state.tourList[this.state.roomCounter+1],
-        showArtwork:null
+        showArtwork:null,
+        tourIsStarted:true
         
       })
     }
@@ -42,7 +43,8 @@ export default class officeVRC9 extends React.Component {
       this.setState({
         roomCounter:this.state.roomCounter-1,
         currentRoom:this.state.tourList[this.state.roomCounter-1],
-        showArtwork:null
+        showArtwork:null,
+        tourIsStarted:true
     });}
   }
 
@@ -82,22 +84,26 @@ export default class officeVRC9 extends React.Component {
         {roomCounter !== null && <View>
            <Pano source = {asset(currentRoom.sourceUrl)}/>
           {roomCounter !== 9 && <NextRoomButton
+            arrowColor = "images/Resurs4.png"
             translateCoordinates = {currentRoom.nextButtonPosition}
             onClick = {()=>{this.changeRoomBySetStateOfRoomCounter('next')}}
             />
           }
           {roomCounter !== 0 && <NextRoomButton
+            arrowColor = "images/Resurs6.png"
             translateCoordinates = {currentRoom.backButtonPosition}
             onClick = {this.changeRoomBySetStateOfRoomCounter}
           />}
           {roomCounter === 3 && 
             <NextRoomButton
+            arrowColor = "images/Resurs4.png"
             translateCoordinates = {currentRoom.shortcutButtonPosition}
             onClick = {()=>{this.setRoomToCustomByButtonClick(5)}}
           />
           }
 
           {roomCounter === 9 && <NextRoomButton
+            arrowColor = "images/Resurs6.png"
             translateCoordinates = {currentRoom.nextButtonPosition}
             onClick = {()=>{this.setRoomToCustomByButtonClick(6)}}
             />}
@@ -105,7 +111,6 @@ export default class officeVRC9 extends React.Component {
             buttonStyle = {{
             width: currentRoom.artList[0].buttonWidth,
             height:currentRoom.artList[0].buttonHeight,
-
             position:"absolute",
             transform: currentRoom.artList[0].buttonPosition
             }}

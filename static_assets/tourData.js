@@ -496,9 +496,9 @@ export default tourData = [
         [{
             title:'Untitled',
             artist:'Anonymous',
-            buttonHeight:4,
+            buttonHeight:3,
             buttonWidth:4,
-            buttonPosition:[{translate: [-0.5, 0, 16]}, {rotateY:"90deg"}],
+            buttonPosition:[{translate: [-0.5, 0, 16]}, {rotateY:"0deg"}],
             artworkPosition:[{translate:[-6.5, 5, 10]}, {rotateY:"180deg"}]
         },
         {
