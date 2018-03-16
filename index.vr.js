@@ -23,8 +23,8 @@ import WelcomeText from './components/WelcomeText';
 export default class officeVRC9 extends React.Component {
   state = {
     tourList:[],
-    roomCounter:6,
-    currentRoom:tourData[6],
+    roomCounter:0,
+    currentRoom:tourData[0],
     tourIsStarted:false,
     showArtwork:null
   }
